@@ -27,6 +27,8 @@ class Stack {
       delete this._storage[this._length - 1];
       this._length = this._length - 1;
       return last;
+    } else {
+      return undefined;
     }
   }
 
@@ -35,7 +37,11 @@ class Stack {
    * @return {*} the last and newest value in the stack
    */
   peek() {
-    return this._storage[this._length - 1];
+    if (this._length > 0) {
+      return this._storage[this._length - 1];
+    } else {
+      return undefined;
+    }
   }
 }
 
