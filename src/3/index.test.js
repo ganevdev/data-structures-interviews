@@ -1,4 +1,4 @@
-const { Stack } = require('./index');
+const { Stack, Aray } = require('./index');
 
 test('Stack Class tests', () => {
   let test = new Stack();
@@ -26,4 +26,18 @@ test('Stack Class tests', () => {
     _length: 2,
   });
   expect(afterPeek).toEqual('some 1');
+});
+
+test('Aray Class tests', () => {
+  let test = new Aray();
+
+  expect(test._storage).toEqual('');
+
+  test.push('so');
+  const afterPush = test.push('me');
+  expect(test).toEqual({
+    _storage: 'some',
+    _length: 4,
+  });
+  expect(afterPush).toEqual(4);
 });

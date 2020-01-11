@@ -11,8 +11,10 @@ class Stack {
    * @param {*} value the value to push
    */
   push(value) {
-    this._storage[this._length] = value;
-    this._length = this._length + 1;
+    if (value) {
+      this._storage[this._length] = value;
+      this._length = this._length + 1;
+    }
   }
 
   /**
@@ -37,4 +39,18 @@ class Stack {
   }
 }
 
-module.exports = { Stack };
+/** fictional data structure like array but string */
+class Aray {
+  constructor() {
+    this._storage = '';
+    this._length = 0;
+  }
+
+  push(value = '') {
+    this._storage = this._storage + value;
+    this._length = this._storage.length;
+    return this._length;
+  }
+}
+
+module.exports = { Stack, Aray };
