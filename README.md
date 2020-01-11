@@ -2,7 +2,7 @@
 
 From: https://frontendmasters.com/courses/data-structures-interviews
 
-repl it: https://repl.it/@bgando
+replit: https://repl.it/@bgando
 
 ## Other
 
