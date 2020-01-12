@@ -49,24 +49,6 @@ class LinkedList {
     }
     return false;
   }
-
-  /**
-   * Checks if a node is the head of the linked list
-   * @param {{prev:Object|null, next:Object|null}} node - the node to check
-   * @return {boolean} - true if node is the head, otherwise false
-   */
-  isHead(value) {
-    return this.head === value;
-  }
-
-  /**
-   * Checks if a node is the tail of the linked list
-   * @param {{prev:Object|null, next:Object|null}} node - the node to check
-   * @return {boolean} - true if node is the tail, otherwise false
-   */
-  isTail(value) {
-    return this.tail === value;
-  }
 }
 
 module.exports = { LinkedList };
