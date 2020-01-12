@@ -50,4 +50,35 @@ describe('Stack Class', () => {
     });
     expect(afterPeek).toEqual('some 1');
   });
+
+  test('all', () => {
+    let test = new Stack();
+
+    test.push('some 0');
+    expect(test._storage).toEqual({ 0: 'some 0' });
+
+    test.push('some 1');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+
+    test.push('some 2');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
+
+    test.pop();
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+
+    test.push('some 2');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
+
+    test.pop();
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+
+    test.pop();
+    expect(test._storage).toEqual({ 0: 'some 0' });
+
+    test.push('some 1');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+
+    test.push('some 2');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
+  });
 });

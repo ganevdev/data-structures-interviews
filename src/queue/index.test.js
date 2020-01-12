@@ -57,4 +57,29 @@ describe('Queue Class', () => {
     expect(afterPeek).toEqual('some 0');
     expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
   });
+
+  test('all', () => {
+    let test = new Queue();
+
+    test.enqueue('some 0');
+    expect(test._storage).toEqual({ 0: 'some 0' });
+
+    test.enqueue('some 1');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+
+    test.enqueue('some 2');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
+
+    test.dequeue();
+    expect(test._storage).toEqual({ 1: 'some 1', 2: 'some 2' });
+
+    test.dequeue();
+    expect(test._storage).toEqual({ 2: 'some 2' });
+
+    test.enqueue('some 3');
+    expect(test._storage).toEqual({ 3: 'some 3', 2: 'some 2' });
+
+    test.dequeue();
+    expect(test._storage).toEqual({ 3: 'some 3' });
+  });
 });
