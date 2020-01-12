@@ -60,7 +60,8 @@ class Queue {
    * @param {*} value the value to enqueue
    */
   enqueue(value) {
-    this._storage[this._length] = value;
+    const lastIndex = this._length + this._headIndex;
+    this._storage[lastIndex] = value;
     this._length = this._length + 1;
   }
 
@@ -69,11 +70,15 @@ class Queue {
    * @return {*} the first and oldest value in the queue
    */
   dequeue() {
-    const firstValue = this._storage[this._headIndex];
-    delete this._storage[this._headIndex];
-    this._length = this._length - 1;
-    this._headIndex = this._headIndex + 1;
-    return firstValue;
+    if (this._length) {
+      const firstValue = this._storage[this._headIndex];
+      delete this._storage[this._headIndex];
+      this._length = this._length - 1;
+      this._headIndex = this._headIndex + 1;
+      return firstValue;
+    } else {
+      return undefined;
+    }
   }
 
   /**
@@ -81,8 +86,12 @@ class Queue {
    * @return {*} the first and oldest value in the queue
    */
   peek() {
-    const firstValue = this._storage[this._headIndex];
-    return firstValue;
+    if (this._length) {
+      const firstValue = this._storage[this._headIndex];
+      return firstValue;
+    } else {
+      return undefined;
+    }
   }
 }
 
