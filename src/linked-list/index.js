@@ -2,11 +2,9 @@
 
 /** Class representing a Linked List. */
 class LinkedList {
-  constructor() {
-    this._storage = {};
-    this._length = 0;
-    this._tail = 0;
-    this._head = 0;
+  constructor(value) {
+    this.head = { value, next: null };
+    this.tail = this.head;
   }
 
   /**
@@ -14,11 +12,9 @@ class LinkedList {
    * @param {*} value - the value to insert
    */
   insert(value) {
-    if (value) {
-      this._storage[this._length] = value;
-      this._tail = this._length;
-      this._length++;
-    }
+    const node = { value, next: null };
+    this.tail.next = node;
+    this.tail = node;
   }
 
   /**
@@ -26,13 +22,17 @@ class LinkedList {
    * @return {*} - the removed value
    */
   removeTail() {
-    if (this._length) {
-      const removedValue = this._storage[this._tail];
-      delete this._storage[this._tail];
-      this._length--;
-      this._tail--;
-      return removedValue;
+    const removedNode = this.tail;
+    let node = this.head;
+    if (!node.next) return removedNode.value;
+    while (node && node.next) {
+      if (!node.next.next) {
+        this.tail = node;
+        this.tail.next = null;
+      }
+      node = node.next;
     }
+    return removedNode.value;
   }
 
   /**
@@ -40,15 +40,7 @@ class LinkedList {
    * @param {*} value - the value to search for
    * @return {boolean} - true if value is found, otherwise false
    */
-  contains(value) {
-    if (!value) return false;
-    let index = this._tail;
-    while (index >= 0) {
-      if (this._storage[index] === value) return true;
-      index--;
-    }
-    return false;
-  }
+  contains() {}
 
   /**
    * Checks if a node is the head of the linked list
