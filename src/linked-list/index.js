@@ -40,21 +40,33 @@ class LinkedList {
    * @param {*} value - the value to search for
    * @return {boolean} - true if value is found, otherwise false
    */
-  contains() {}
+  contains(value) {
+    if (!value) return false;
+    let node = this.head;
+    while (node) {
+      if (node.value === value) return true;
+      node = node.next;
+    }
+    return false;
+  }
 
   /**
    * Checks if a node is the head of the linked list
    * @param {{prev:Object|null, next:Object|null}} node - the node to check
    * @return {boolean} - true if node is the head, otherwise false
    */
-  isHead() {}
+  isHead(value) {
+    return this.head === value;
+  }
 
   /**
    * Checks if a node is the tail of the linked list
    * @param {{prev:Object|null, next:Object|null}} node - the node to check
    * @return {boolean} - true if node is the tail, otherwise false
    */
-  isTail() {}
+  isTail(value) {
+    return this.tail === value;
+  }
 }
 
 module.exports = { LinkedList };
