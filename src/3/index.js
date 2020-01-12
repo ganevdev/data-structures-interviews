@@ -80,7 +80,10 @@ class Queue {
    * Returns the value at the beginning of the queue without removing it from the queue
    * @return {*} the first and oldest value in the queue
    */
-  peek() {}
+  peek() {
+    const firstValue = this._storage[this._headIndex];
+    return firstValue;
+  }
 }
 
 module.exports = { Stack, Queue };
