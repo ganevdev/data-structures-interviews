@@ -1,7 +1,7 @@
 const { Queue } = require('./index');
 
 describe('Queue Class', () => {
-  test('Queue() object ', () => {
+  test('Queue() object', () => {
     let test = new Queue();
     expect(test._storage).toEqual({});
   });

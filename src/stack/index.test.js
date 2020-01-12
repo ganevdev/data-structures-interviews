@@ -1,7 +1,7 @@
 const { Stack } = require('./index');
 
 describe('Stack Class', () => {
-  test('Stack() object ', () => {
+  test('Stack() object', () => {
     let test = new Stack();
     expect(test._storage).toEqual({});
   });
