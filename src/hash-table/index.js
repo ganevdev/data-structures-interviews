@@ -1,7 +1,8 @@
 /** Class representing a Hash Table */
 class HashTable {
-  constructor() {
+  constructor(val) {
     this._storage = [];
+    this._tableSize = val;
   }
 
   /**
@@ -10,8 +11,8 @@ class HashTable {
    * @param {*} value - the value to insert
    */
   insert(key, value) {
-    let final = [...this._storage, [key, value]];
-    this._storage = final;
+    const index = this._hash(key, this._tableSize);
+    this._tableSize[index] = value;
   }
 
   /**
@@ -19,21 +20,16 @@ class HashTable {
    * @param {string} key - the key associated with the value
    * @return {*} value - the deleted value
    */
-  remove(key) {
-    const removedValue = this._storage.filter((array) => array[0] === key);
-    this._storage = this._storage.filter((array) => array[0] !== key);
-    return removedValue[0][1];
-  }
+  // remove(key) {
+  // }
 
   /**
    * Returns the value associated with a key
    * @param {string} key - the key to search for
    * @return {*} - the value associated with the key
    */
-  retrieve(key) {
-    const valueOfKey = this._storage.filter((array) => array[0] === key);
-    return valueOfKey[0][1];
-  }
+  // retrieve(key) {
+  // }
 
   /**
    * Hashes string value into an integer that can be mapped to an array index
