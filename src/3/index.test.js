@@ -1,4 +1,43 @@
-const { Stack, Aray } = require('./index');
+const { Stack, Queue } = require('./index');
+
+describe('Queue Class', () => {
+  test('Queue() object ', () => {
+    let test = new Queue();
+    expect(test._storage).toEqual({});
+  });
+
+  test('.enqueue()', () => {
+    let test = new Queue();
+
+    test.enqueue('some 0');
+    expect(test._storage).toEqual({ 0: 'some 0' });
+    test.enqueue('some 1');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1' });
+    test.enqueue('some 2');
+    expect(test._storage).toEqual({ 0: 'some 0', 1: 'some 1', 2: 'some 2' });
+  });
+
+  test('.dequeue()', () => {
+    let test = new Queue();
+    test.enqueue('some 0');
+    test.enqueue('some 1');
+    test.enqueue('some 2');
+
+    let afterDequeue = '';
+
+    afterDequeue = test.dequeue();
+    expect(afterDequeue).toEqual('some 0');
+    expect(test._storage).toEqual({ 1: 'some 1', 2: 'some 2' });
+
+    afterDequeue = test.dequeue();
+    expect(afterDequeue).toEqual('some 1');
+    expect(test._storage).toEqual({ 2: 'some 2' });
+
+    afterDequeue = test.dequeue();
+    expect(afterDequeue).toEqual('some 2');
+    expect(test._storage).toEqual({});
+  });
+});
 
 describe('Stack Class', () => {
   test('Stack() object ', () => {
@@ -50,18 +89,4 @@ describe('Stack Class', () => {
     });
     expect(afterPeek).toEqual('some 1');
   });
-});
-
-test('Aray Class tests', () => {
-  let test = new Aray();
-
-  expect(test._storage).toEqual('');
-
-  test.push('so');
-  const afterPush = test.push('me');
-  expect(test).toEqual({
-    _storage: 'some',
-    _length: 4,
-  });
-  expect(afterPush).toEqual(4);
 });
