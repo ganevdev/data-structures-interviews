@@ -7,26 +7,32 @@ describe('HashTable Class', () => {
   });
 
   test('insert()', () => {
-    let test = new HashTable();
+    let test = new HashTable(25);
 
-    test.insert('1', 'some 1');
-    test.insert('2', 'some 2');
-    test.insert('3', 'some 3');
+    test.insert('a', 'some 1');
+    test.insert('b', 'some 2');
+    test.insert('c', 'some 3');
+
+    expect(test).toBeDefined();
   });
 
   test('remove()', () => {
     let test = new HashTable();
 
-    test.insert('1', 'some 1');
-    test.insert('2', 'some 2');
-    test.insert('3', 'some 3');
+    test.insert('a', 'some 1');
+    test.insert('b', 'some 2');
+    test.insert('c', 'some 3');
   });
 
   test('retrieve()', () => {
     let test = new HashTable();
 
-    test.insert('1', 'some 1');
-    test.insert('2', 'some 2');
-    test.insert('3', 'some 3');
+    test.insert('a', 'some 1');
+    test.insert('b', 'some 2');
+    test.insert('c', 'some 3');
+
+    let afterRetrieve = '';
+    afterRetrieve = test.retrieve('a');
+    expect(afterRetrieve).toEqual('some 1');
   });
 });

@@ -3,6 +3,7 @@ class HashTable {
   constructor(val) {
     this._storage = [];
     this._tableSize = val;
+    this._inputSize = 0;
   }
 
   /**
@@ -12,7 +13,8 @@ class HashTable {
    */
   insert(key, value) {
     const index = this._hash(key, this._tableSize);
-    this._tableSize[index] = value;
+    if (!this._storage[index]) this._storage[index] = [];
+    this._storage[index].push([key, value]);
   }
 
   /**
@@ -28,8 +30,17 @@ class HashTable {
    * @param {string} key - the key to search for
    * @return {*} - the value associated with the key
    */
-  // retrieve(key) {
-  // }
+  retrieve(key) {
+    const index = this._hash(key, this._tableSize);
+    const arrayAtIndex = this._storage[index];
+
+    if (arrayAtIndex) {
+      for (let i = 0; i < arrayAtIndex.length; i++) {
+        const keyValueArray = arrayAtIndex[i];
+        if (keyValueArray[0] === key) return keyValueArray[1];
+      }
+    }
+  }
 
   /**
    * Hashes string value into an integer that can be mapped to an array index
