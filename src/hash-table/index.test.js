@@ -40,43 +40,43 @@ describe('HashTable Class', () => {
     ]);
   });
 
-  test('remove()', () => {
-    let test = new HashTable();
+  // test('remove()', () => {
+  //   let test = new HashTable();
 
-    test.insert('a', 'some 1');
-    test.insert('b', 'some 2');
-    test.insert('c', 'some 3');
+  //   test.insert('a', 'some 1');
+  //   test.insert('b', 'some 2');
+  //   test.insert('c', 'some 3');
 
-    let afterRemove = '';
+  //   let afterRemove = '';
 
-    afterRemove = test.remove('a');
-    expect(afterRemove).toEqual('some 1');
-    expect(test._storage).toEqual([
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      [['b', 'some 2']],
-      undefined,
-      undefined,
-      [['c', 'some 3']],
-    ]);
-  });
+  //   afterRemove = test.remove('a');
+  //   expect(afterRemove).toEqual('some 1');
+  //   expect(test._storage).toEqual([
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     undefined,
+  //     [['b', 'some 2']],
+  //     undefined,
+  //     undefined,
+  //     [['c', 'some 3']],
+  //   ]);
+  // });
 
   test('retrieve()', () => {
     let test = new HashTable();
