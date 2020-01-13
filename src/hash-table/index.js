@@ -33,13 +33,12 @@ class HashTable {
   retrieve(key) {
     const index = this._hash(key, this._tableSize);
     const arrayAtIndex = this._storage[index];
-
     if (arrayAtIndex) {
-      for (let i = 0; i < arrayAtIndex.length; i++) {
-        const keyValueArray = arrayAtIndex[i];
-        if (keyValueArray[0] === key) return keyValueArray[1];
-      }
+      const retrieveArray = arrayAtIndex.filter((e) => e[0] === key);
+      if (retrieveArray[0] && retrieveArray[0][1]) return retrieveArray[0][1];
+      return undefined;
     }
+    return undefined;
   }
 
   /**

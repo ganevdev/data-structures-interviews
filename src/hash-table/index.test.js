@@ -34,5 +34,12 @@ describe('HashTable Class', () => {
     let afterRetrieve = '';
     afterRetrieve = test.retrieve('a');
     expect(afterRetrieve).toEqual('some 1');
+    afterRetrieve = test.retrieve('b');
+    expect(afterRetrieve).toEqual('some 2');
+    afterRetrieve = test.retrieve('c');
+    expect(afterRetrieve).toEqual('some 3');
+
+    afterRetrieve = test.retrieve('non ex');
+    expect(afterRetrieve).toBeUndefined();
   });
 });
