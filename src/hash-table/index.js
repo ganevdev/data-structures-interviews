@@ -23,6 +23,7 @@ class HashTable {
    * @return {*} value - the deleted value
    */
   // remove(key) {
+
   // }
 
   /**
@@ -33,11 +34,9 @@ class HashTable {
   retrieve(key) {
     const index = this._hash(key, this._tableSize);
     const arrayAtIndex = this._storage[index];
-    if (arrayAtIndex) {
-      const retrieveArray = arrayAtIndex.filter((e) => e[0] === key);
-      if (retrieveArray[0] && retrieveArray[0][1]) return retrieveArray[0][1];
-      return undefined;
-    }
+    if (!arrayAtIndex) return undefined;
+    const retrieveArray = arrayAtIndex.filter((e) => e[0] === key);
+    if (retrieveArray[0] && retrieveArray[0][1]) return retrieveArray[0][1];
     return undefined;
   }
 

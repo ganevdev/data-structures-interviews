@@ -13,7 +13,31 @@ describe('HashTable Class', () => {
     test.insert('b', 'some 2');
     test.insert('c', 'some 3');
 
-    expect(test).toBeDefined();
+    expect(test._storage).toEqual([
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      [['a', 'some 1']],
+      undefined,
+      undefined,
+      [['b', 'some 2']],
+      undefined,
+      undefined,
+      [['c', 'some 3']],
+    ]);
   });
 
   test('remove()', () => {
@@ -22,6 +46,36 @@ describe('HashTable Class', () => {
     test.insert('a', 'some 1');
     test.insert('b', 'some 2');
     test.insert('c', 'some 3');
+
+    let afterRemove = '';
+
+    afterRemove = test.remove('a');
+    expect(afterRemove).toEqual('some 1');
+    expect(test._storage).toEqual([
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      [['b', 'some 2']],
+      undefined,
+      undefined,
+      [['c', 'some 3']],
+    ]);
   });
 
   test('retrieve()', () => {
